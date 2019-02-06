@@ -151,16 +151,6 @@ i {
     display: none;
 }
 
-label  {
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);    
-    position: absolute;
-    color: red;
-    font-size: 22px;
-    margin-top: 8px;
-}
-
 .wrap-your-score {
     position: absolute;
     top: 20px;
@@ -188,6 +178,9 @@ label  {
     width: 200px;
     font-size: 15px;
     color: #55556e;
+}
+.border-error {
+    border: 1px solid red;
 }
 
 .winner { background-color: #f7f7f7; }

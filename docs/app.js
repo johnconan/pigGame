@@ -11,9 +11,20 @@ let playerPanel1 = document.querySelector(`.player-1-panel`);
 let finishScoreValue = document.querySelector('.finish-score');
 let buttonScore = document.querySelector('.button-score');
 
-buttonScore.addEventListener('click', () => {
-  finishScore = finishScoreValue.value;
-  finishScoreValue.value = '';
+buttonScore.addEventListener('click', (event) => {
+  if (finishScoreValue.value === '') {
+    event.preventDefault();
+    finishScoreValue.classList.add('border-error');
+    finishScoreValue.style.padding = '9px';
+    alert('Счет не должен быть пустым! По умолчанию играем до 100');
+  } else {
+    finishScore = finishScoreValue.value;
+    finishScoreValue.value = '';
+  }
+})
+
+finishScoreValue.addEventListener('input', () => {
+  finishScoreValue.classList.remove('border-error');  
 })
 
 const init = () => {
@@ -22,8 +33,8 @@ const init = () => {
   activePlayer = 0;
   gameInit = true;
   finishScore = 100;
-
   buttonScore.removeAttribute('disabled');
+
 
   score0.textContent = 0;
   score1.textContent = 0;
