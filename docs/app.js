@@ -66,7 +66,7 @@ init();
 
 const audioWinner = () => {
   audio.src = 'music/winner.mp3';
-  audio.volume = 0.2;
+  audio.volume = 0.05;
   audio.autoplay = true;
 }
 
