@@ -13,6 +13,7 @@ let playerPanel1 = document.querySelector(`.player-1-panel`);
 
 let finishScoreValue = document.querySelector('.finish-score');
 let buttonScore = document.querySelector('.button-score');
+let currentScoreFinal = document.querySelector('.current-score-final span');
 
 ///////////////  variables ////////////////////
 
@@ -27,6 +28,7 @@ buttonScore.addEventListener('click', (event) => {
     alert('Счет не должен быть пустым! По умолчанию играем до 100');
   } else {
     finishScore = finishScoreValue.value;
+    currentScoreFinal.textContent = finishScoreValue.value;
     finishScoreValue.value = '';
   }
 })
@@ -60,6 +62,8 @@ const init = () => {
   activePlayer = 0;
   gameInit = true;
   finishScore = 100;
+  currentScoreFinal.textContent = finishScore;
+
   buttonScore.removeAttribute('disabled');
   document.querySelector('.btn-new').classList.remove('btn-new-bg');
 

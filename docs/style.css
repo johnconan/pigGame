@@ -254,6 +254,15 @@ i {
     display: none;
 }
 
+.current-score-final {
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+.current-score-final span {
+    font-size: 20px;
+}
+
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
