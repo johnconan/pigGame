@@ -29,6 +29,7 @@ body {
 .wrapper {
     width: 1000px;
     position: absolute;
+    border-radius: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -44,8 +45,6 @@ body {
     height: 600px;
     padding: 100px;
 }
-
-
 
 /**********************************************
 *** PLAYERS
@@ -105,6 +104,7 @@ body {
 
 button {
     position: absolute;
+    transition: 5s all;
     width: 200px;
     left: 50%;
     transform: translateX(-50%);
@@ -119,37 +119,42 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover { font-weight: 600; }
+/* button:hover { font-weight: 600; } */
 button:hover i { margin-right: 20px; }
 
 button:focus {
     outline: none;
 }
 
+.btn-new { 
+  top: 45px;
+}
+
 i {
     color: #EB4D4D;
     display: inline-block;
     margin-right: 15px;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1;
     vertical-align: text-top;
     margin-top: -4px;
     transition: margin 0.3s;
 }
 
-.btn-new { top: 45px;}
+.btn-new-bg {
+  color: black;
+}
+
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
 
 #dice-1 {
     top: 120px;
     left: 50%;
-    display: none;
 }
 #dice-2 {
     left: 50%;
     top: 250px;
-    display: none;
 }
 
 .dice {
@@ -158,6 +163,32 @@ i {
     height: 100px;
     left: 50%;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+@keyframes dice {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-dice-paused {
+    animation-name: dice;
+    animation-duration: .2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+}
+
+.animate-dice-running {
+    animation-name: dice;
+    animation-duration: .2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
 }
 
 .wrap-your-score {
@@ -197,23 +228,32 @@ i {
     top: 20px;
     left: 20px;
     padding: 10px;
-    background-color: red;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
 }
+.no-sound i {
+    color: green;
+    font-size: 40px;    
+}
+
+.yes-sound i {
+    color: red;
+    font-size: 40px;
+}
+
 
 .yes-sound {
     position: absolute;
     top: 20px;
     left: 20px;
     padding: 10px;
-    background-color: green;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
     display: none;
 }
+
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
