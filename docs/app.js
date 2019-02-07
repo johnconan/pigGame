@@ -13,8 +13,6 @@ let playerPanel1 = document.querySelector(`.player-1-panel`);
 
 let finishScoreValue = document.querySelector('.finish-score');
 let buttonScore = document.querySelector('.button-score');
-let noSound = document.querySelector('.no-sound');
-let yesSound = document.querySelector('.yes-sound');
 
 ///////////////  variables ////////////////////
 
@@ -64,8 +62,6 @@ const init = () => {
   finishScore = 100;
   buttonScore.removeAttribute('disabled');
   document.querySelector('.btn-new').classList.remove('btn-new-bg');
-  document.querySelector('.yes-sound').style.display = 'none';
-  document.querySelector('.no-sound').style.display = 'block';
 
   clearInterval(interval);
   bgSoundInit();
@@ -108,18 +104,18 @@ const audioHold = () => {
 
 const noSoundBackground = () => {
   audio.muted = true;
-  noSound.style.display = 'none';
-  yesSound.style.display = 'block';
+  document.querySelector('.yes-sound').style.display = 'block';
+  document.querySelector('.no-sound').style.display = 'none';
 }
 
 const yesSoundBackground = () => {
   audio.muted = false;
-  noSound.style.display = 'none';
-  yesSound.style.display = 'block';
+  document.querySelector('.yes-sound').style.display = 'none';
+  document.querySelector('.no-sound').style.display = 'block';
 }
 
-yesSound.addEventListener('click', yesSoundBackground);
-noSound.addEventListener('click', noSoundBackground);
+document.querySelector('.yes-sound').addEventListener('click', yesSoundBackground);
+document.querySelector('.no-sound').addEventListener('click', noSoundBackground);
 
 ///////////////  music content ////////////////////
 
